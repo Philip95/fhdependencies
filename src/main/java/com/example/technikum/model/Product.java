@@ -14,8 +14,8 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "productId")
+    private Long productId;
 
     @Column(name = "name")
     private String name;
@@ -28,5 +28,9 @@ public class Product {
 
     @Column(name = "interestRate")
     private BigDecimal interestRate;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
 }

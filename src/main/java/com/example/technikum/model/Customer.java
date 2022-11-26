@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,8 +16,8 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "customerId")
+    private Long customerId;
 
     @Column(name = "firstname")
     private String firstname;
@@ -35,5 +36,8 @@ public class Customer {
 
     @Column(name = "status")
     private String status;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Product> products;
 
 }

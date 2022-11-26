@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class Helper {
+public class CustomerHelper {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -24,8 +24,8 @@ public class Helper {
     }
 
     public static Long decideCurrentId(Customer customer, Long id) {
-        if(customer.getId() > id) {
-            id = customer.getId();
+        if(customer.getCustomerId() > id) {
+            id = customer.getCustomerId();
         }
         return id;
     }
