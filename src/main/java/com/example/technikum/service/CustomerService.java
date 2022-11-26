@@ -26,17 +26,21 @@ public class CustomerService {
         Faker faker = new Faker();
 
         for (int i = 0; i <= 100; i++) {
-            customerRepository.save(Customer.builder()
-                    .customerId(customerHelper.findLastId())
-                    .firstname(faker.name().firstName())
-                    .lastname(faker.name().lastName())
-                    .address(faker.address().fullAddress())
-                    .dateOfBirth((faker.date().birthday(18,60)).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime())
-                    .email(faker.internet().emailAddress())
-                    .status(CustomerStatus.getRandom().label)
-                    .build()
-            );
+            createCustomer(faker);
         }
+    }
+
+    private void createCustomer(Faker faker) {
+        customerRepository.save(Customer.builder()
+                .customerId(customerHelper.findLastId())
+                .firstname(faker.name().firstName())
+                .lastname(faker.name().lastName())
+                .address(faker.address().fullAddress())
+                .dateOfBirth((faker.date().birthday(18,60)).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime())
+                .email(faker.internet().emailAddress())
+                .status(CustomerStatus.getRandom().label)
+                .build()
+        );
     }
 
 }
