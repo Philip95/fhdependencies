@@ -2,7 +2,7 @@ package com.example.technikum.model;
 
 import lombok.*;
 import javax.persistence.*;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,12 +21,12 @@ public class Product {
     private String name;
 
     @Column(name = "balance")
-    private BigInteger balance;
+    private BigDecimal balance;
 
     @Column(name = "productCode")
     private String productCode;
 
     @Column(name = "interestRate")
-    private BigInteger interestRate;
+    private BigDecimal interestRate;
 
 }

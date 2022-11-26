@@ -21,6 +21,7 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
 
+	implementation ('com.github.javafaker:javafaker:1.0.2') { exclude module: 'org.yaml' }
 
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
